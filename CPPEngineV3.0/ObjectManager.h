@@ -12,18 +12,10 @@
 #include "Script.h"
 
 #include <vector>
+#include <boost/shared_array.hpp>
 
 namespace GameEngineProject
 {
-
-	typedef enum
-	{
-		GAMEOBJECT,
-		COMPONENT,
-		SCRIPT
-	} ObjectType;
-
-
 
 	class ObjectManager
 	{
@@ -33,19 +25,19 @@ namespace GameEngineProject
 
 		GameObject * const GetFreeGameObject();
 		bool ReturnGameObject(GameObject *);
-		GameObject * GetAllGameObject(int & length);
+		boost::shared_array<GameObject> GetAllGameObject(int &);
 
 		Transform * const GetFreeTransfrom();
 		bool ReturnTransform(Transform *);
-		Transform * GetAllTransform(int & length);
+		boost::shared_array<Transform> GetAllTransform(int &);
 
 		GraphicsComponent * const GetFreeGraphicsComponent();
 		bool ReturnTransform(GraphicsComponent *);
-		GraphicsComponent * GetAllGraphicsComponent(int & length);
+		boost::shared_array<GraphicsComponent> GetAllGraphicsComponent(int &);
 
 		PhysicsComponent * const GetFreePhysicsComponent();
 		bool ReturnPhysicsComponent(PhysicsComponent *);
-		PhysicsComponent * GetAllPhysicsComponent(int & length);
+		boost::shared_array<PhysicsComponent> GetAllPhysicsComponent(int &);
 
 	private:
 		Factory<GameObject, 100000> _gameObjectFactory;

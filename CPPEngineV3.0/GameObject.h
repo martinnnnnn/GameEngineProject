@@ -53,8 +53,11 @@ namespace GameEngineProject
 
 	public:
 		virtual bool operator==(const GameObject &);
+		virtual bool operator==(const Factoriable &);
 		virtual void Swap(const GameObject &);
+		virtual void Swap(const Factoriable &);
 		virtual void Reset();
+		GameObject(const GameObject &);
 
 
 	private:
@@ -70,7 +73,6 @@ namespace GameEngineProject
 		
 
 	private:
-		GameObject(const GameObject &) = delete;
 		const GameObject & operator=(const GameObject &) = delete;
 
 		//std::vector<Component *> _components;

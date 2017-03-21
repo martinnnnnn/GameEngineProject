@@ -2,6 +2,7 @@
 
 #include "Factoriable.h"
 #include <type_traits>
+#include <boost\shared_array.hpp>
 
 namespace GameEngineProject
 {
@@ -12,6 +13,7 @@ namespace GameEngineProject
 		static_assert(std::is_base_of<Factoriable, T>::value, "T must be derived from Factoriable");
 		static_assert(size > 0, "size must be > 0");
 
+	public:
 		T* const GetNew()
 		{
 			T* newT = nullptr;
@@ -43,13 +45,13 @@ namespace GameEngineProject
 			return (_current >= size);
 		}
 
-		T* GetAll(int & length)
+		boost::shared_array<T> GetAll(int & length)
 		{
-			T* usedItems = new t[_current];
 			length = _current;
+			boost::shared_array<T> usedItems(new t[_current]);
 			for (int i = 0; i < _current; ++i)
 			{
-				usedItems[i] = &(_items[i]);
+				usedItems[i] = _items[i];
 			}
 			return usedItems;
 		}

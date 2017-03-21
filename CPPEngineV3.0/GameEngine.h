@@ -8,7 +8,7 @@
 
 #include <vector>
 #include <string>
-
+#include <Windows.h>
 
 
 
@@ -38,12 +38,13 @@ namespace GameEngineProject
 		void Restart();
 		void Quit();
 
+		LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
 
 	private:
 		void UpdateInput();
 		void UpdateLogic();
 		void UpdatePhysics();
-		void Render(float);
+		bool Render(float);
 
 	public:
 		~GameEngine();
@@ -52,12 +53,12 @@ namespace GameEngineProject
 			static GameEngine *instance = new GameEngine();
 			return *instance;
 		}
-		const SceneManager & GetSceneManager();
-		const GraphicsEngine & GetGraphicsEngine();
-		const PhysicsEngine & GetPhysicsEngine();
-		const InputEngine & GetInputEngine();
-		const ObjectManager & GetObjectManager();
-
+		SceneManager * const GetSceneManager();
+		GraphicsEngine * const GetGraphicsEngine();
+		PhysicsEngine * const GetPhysicsEngine();
+		InputEngine * const GetInputEngine();
+		ObjectManager * const GetObjectManager();
+		Timer * const GetTimer();
 
 	private:
 		bool _quit;
@@ -74,5 +75,8 @@ namespace GameEngineProject
 		GameEngine(GameEngine const&) = delete;
 		void operator=(GameEngine const&) = delete;
 	};
+
+	static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+
 
 }

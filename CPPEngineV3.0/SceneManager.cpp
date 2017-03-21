@@ -117,3 +117,14 @@ Scene* SceneManager::FindObject(const string& name)
 	return nullptr;
 }
 
+boost::shared_ptr<vector<GameObject*>> SceneManager::GetGameObjects()
+{
+	boost::shared_ptr<vector<GameObject*>> _objects;
+	for (int i = 0; i < _scenes.size(); ++i)
+	{
+		vector<GameObject*> _sceneObjects = _scenes[i]->GetObjects();
+		_objects->insert(_sceneObjects.end(), _sceneObjects.begin(), _sceneObjects.end());
+	}
+	return _objects;
+}
+

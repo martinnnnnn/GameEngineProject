@@ -5,8 +5,7 @@
 
 
 #include <vector>
-
-
+#include "boost\shared_ptr.hpp"
 
 namespace GameEngineProject
 {
@@ -35,8 +34,7 @@ namespace GameEngineProject
 		Scene* GetScene(const std::string&);
 		Scene* FindObject(GameObject*);
 		Scene* FindObject(const std::string&);
-		
-		
+		boost::shared_ptr<std::vector<GameObject*>> GetGameObjects();
 
 
 
