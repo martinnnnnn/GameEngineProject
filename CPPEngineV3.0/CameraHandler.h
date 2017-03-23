@@ -29,7 +29,7 @@ namespace GameEngineProject
 	private:
 		float _positionX, _positionY, _positionZ;
 		float _rotationX, _rotationY, _rotationZ;
-		float _leftTurnSpeed, _rightTurnSpeed, _rotationY;
+		float _leftTurnSpeed, _rightTurnSpeed;
 		DirectX::XMMATRIX _viewMatrix;
 	};
 }

@@ -3,7 +3,7 @@
 // TODO : MESSAGING
 
 #include "Utils.h"
-#include "Factoriable.h"
+//#include "Factoriable.h"
 
 #include <string>
 #include <vector>
@@ -17,7 +17,7 @@ namespace GameEngineProject
 	class GraphicsComponent;
 	class Transform;
 
-	class GameObject : public Factoriable
+	class GameObject
 	{
 	public:
 		explicit GameObject();
@@ -53,11 +53,10 @@ namespace GameEngineProject
 
 	public:
 		virtual bool operator==(const GameObject &);
-		virtual bool operator==(const Factoriable &);
 		virtual void Swap(const GameObject &);
-		virtual void Swap(const Factoriable &);
 		virtual void Reset();
 		GameObject(const GameObject &);
+		const GameObject & operator=(const GameObject &);
 
 
 	private:
@@ -70,15 +69,6 @@ namespace GameEngineProject
 		GraphicsComponent * _graphics;
 		PhysicsComponent * _physics;
 
-		
-
-	private:
-		const GameObject & operator=(const GameObject &) = delete;
-
-		//std::vector<Component *> _components;
-		//bool AddComponent(Component * const);
-		//bool RemoveComponent(Component * const);
-		//void ClearComponents();
 
 	};
 

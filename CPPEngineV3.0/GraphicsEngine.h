@@ -11,7 +11,7 @@ namespace GameEngineProject
 	class D3DHandler;
 	class CameraHandler;
 	class ShaderManager;
-	class LightClass;
+	class LightManager;
 
 	const bool FULL_SCREEN = true;
 	const bool VSYNC_ENABLED = true;
@@ -23,9 +23,10 @@ namespace GameEngineProject
 
 	public:
 		GraphicsEngine();
+		GraphicsEngine(const GraphicsEngine &);
 		~GraphicsEngine();
 
-		bool Initialize(int, int, HWND);
+		bool Initialize();
 		void Shutdown();
 		void Update();
 		bool Render(float);
@@ -43,14 +44,9 @@ namespace GameEngineProject
 
 		D3DHandler* m_Direct3D;
 		ShaderManager* m_ShaderManager;
-		LightClass* m_Light;
+		LightManager* m_Light;
 
 		CameraHandler* m_Camera;
 	};
-
-
-	/////////////////////////
-	// FUNCTION PROTOTYPES //
-	/////////////////////////
 
 }

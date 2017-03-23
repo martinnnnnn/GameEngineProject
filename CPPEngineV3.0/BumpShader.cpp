@@ -6,15 +6,6 @@
 using namespace GameEngineProject;
 using namespace DirectX;
 
-BumpShader::BumpShader()
-{
-}
-
-
-BumpShader::~BumpShader()
-{
-}
-
 
 BumpShader::BumpShader()
 {

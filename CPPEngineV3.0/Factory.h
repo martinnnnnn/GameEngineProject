@@ -10,7 +10,7 @@ namespace GameEngineProject
 	template <typename T, int size>
 	class Factory
 	{
-		static_assert(std::is_base_of<Factoriable, T>::value, "T must be derived from Factoriable");
+		//static_assert(std::is_base_of<Factoriable, T>::value, "T must be derived from Factoriable");
 		static_assert(size > 0, "size must be > 0");
 
 	public:
@@ -27,7 +27,7 @@ namespace GameEngineProject
 
 		bool Free(T* const t)
 		{
-			for (int i = 0; i < _current)
+			for (int i = 0; i < _current; ++i)
 			{
 				if (_items[i] == *t)
 				{
@@ -48,7 +48,7 @@ namespace GameEngineProject
 		boost::shared_array<T> GetAll(int & length)
 		{
 			length = _current;
-			boost::shared_array<T> usedItems(new t[_current]);
+			boost::shared_array<T> usedItems(new T[_current]());
 			for (int i = 0; i < _current; ++i)
 			{
 				usedItems[i] = _items[i];

@@ -37,7 +37,7 @@ GraphicsEngine::~GraphicsEngine()
 {
 }
 
-bool GraphicsEngine::Initialize(int screenWidth, int screenHeight, HWND hwnd)
+bool GraphicsEngine::Initialize()
 {
 	int screenWidth, screenHeight;
 	bool result;
@@ -48,19 +48,16 @@ bool GraphicsEngine::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 
 	InitializeWindows(screenWidth, screenHeight);
 
-	bool result;
-
-
 	m_Direct3D = new D3DHandler;
 	if (!m_Direct3D)
 	{
 		return false;
 	}
 
-	result = m_Direct3D->Initialize(screenWidth, screenHeight, VSYNC_ENABLED, hwnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
+	result = m_Direct3D->Initialize(screenWidth, screenHeight, VSYNC_ENABLED, m_hwnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
 	if (!result)
 	{
-		MessageBox(hwnd, L"Could not initialize Direct3D", L"Error", MB_OK);
+		MessageBox(m_hwnd, L"Could not initialize Direct3D", L"Error", MB_OK);
 		return false;
 	}
 

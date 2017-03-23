@@ -31,9 +31,9 @@ namespace GameEngineProject
 
 	private:
 
-		Vector::vec3f position;
-		Vector::vec3f rotation;
-		Vector::vec3f scale;
+		Vector::vec3f _position;
+		Vector::vec3f _rotation;
+		Vector::vec3f _scale;
 	};
 
 }

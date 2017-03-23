@@ -2,6 +2,7 @@
 
 #include <fstream>
 
+using namespace GameEngineProject;
 using namespace DirectX;
 
 MultiTextureShader::MultiTextureShader()

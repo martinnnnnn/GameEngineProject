@@ -208,3 +208,12 @@ void GameObject::Reset()
 	_tag = "";
 	_shotdown = false;
 }
+
+GameEngineProject::GameObject::GameObject(const GameObject &)
+{
+}
+
+const GameObject & GameEngineProject::GameObject::operator=(const GameObject &)
+{
+	// TODO: insert return statement here
+}

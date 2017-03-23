@@ -35,7 +35,7 @@ bool ShaderManager::Initialize(ID3D11Device* device, HWND hwnd)
 	bool result;
 
 	// Create the texture shader object.
-	m_TextureShader = new TextureShaderClass;
+	m_TextureShader = new TextureShader;
 	if (!m_TextureShader)
 	{
 		return false;
@@ -51,7 +51,7 @@ bool ShaderManager::Initialize(ID3D11Device* device, HWND hwnd)
 
 
 	// Create the light shader object.
-	m_LightShader = new LightShaderClass;
+	m_LightShader = new LightShader;
 	if (!m_LightShader)
 	{
 		return false;
@@ -67,7 +67,7 @@ bool ShaderManager::Initialize(ID3D11Device* device, HWND hwnd)
 
 
 	// Create the bump map shader object.
-	m_BumpMapShader = new BumpMapShaderClass;
+	m_BumpMapShader = new BumpShader;
 	if (!m_BumpMapShader)
 	{
 		return false;
@@ -82,7 +82,7 @@ bool ShaderManager::Initialize(ID3D11Device* device, HWND hwnd)
 	}
 
 	// Create the multitexture shader object.
-	m_MultiTextureShader = new MultiTextureShaderClass;
+	m_MultiTextureShader = new MultiTextureShader;
 	if (!m_MultiTextureShader)
 	{
 		return false;
@@ -97,7 +97,7 @@ bool ShaderManager::Initialize(ID3D11Device* device, HWND hwnd)
 	}
 
 	// Create the fog shader object.
-	m_FogShader = new FogShaderClass;
+	m_FogShader = new FogShader;
 	if (!m_FogShader)
 	{
 		return false;
